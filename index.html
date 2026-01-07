@@ -301,180 +301,93 @@ footer{
     <h1>A Touch of Glamour<br>in every scent</h1>
     <p>DEMYORÁ Gilded Fragrance menghadirkan nuansa mewah, elegan, dan berkelas. Aroma eksklusif yang memikat — cocok untuk kepribadian premium</p>
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demonyra</title>
+<title>DEMYORÁ Order</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 body{
   margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:linear-gradient(140deg,#0a0a0a,#14110a,#0c0c0c);
+  padding:40px;
+  background: linear-gradient(120deg, #0e0e0e, #1e1b14);
+  font-family: Arial, sans-serif;
   color:white;
 }
 
-/* === HEADER PEMESANAN === */
+/* HEADER ORDER */
 .order-header{
   display:flex;
   align-items:center;
-  gap:28px;
-  padding:40px 44px 10px;
+  gap:15px;
+  margin-bottom:25px;
 }
 
-/* Tombol Shopee */
+/* BUTTON */
 .shop-btn{
-  background:linear-gradient(135deg,#d8b84c,#f6e6a7,#cfa93b);
-  color:#000;
-  padding:10px 26px;
-  border-radius:30px;
-  font-size:14px;
-  font-weight:600;
+  background: linear-gradient(135deg,#d4b352,#e8cc74);
+  padding:10px 22px;
+  border-radius:40px;
   text-decoration:none;
-  box-shadow:0 8px 18px rgba(0,0,0,.25);
+  color:#2e250a;
+  font-family:"Cinzel", serif;
+  font-weight:700;
+  font-size:14px;
+  box-shadow:0 8px 22px rgba(0,0,0,.4);
   transition:.3s;
 }
-.shop-btn:hover{ transform:translateY(-2px); }
+.shop-btn:hover{
+  transform:translateY(-2px);
+}
 
-/* GARIS PANAH ANIMASI */
+/* CHEVRON */
+.chevron{
+  font-size:36px;
+  font-weight:900;
+  color:#e6cb6a;
+  margin-top:-5px;
+}
+
+/* ARROW */
 .arrow-left{
+  width:110px;
+  height:3px;
+  background:linear-gradient(90deg,#c8a84e,#e6d27e);
+  border-radius:20px;
   position:relative;
-  height:2px;
-  width:120px;  /* panjang maksimum */
-  overflow:hidden;
+  animation:stretch 2s infinite ease-in-out;
 }
 
-/* garis yang memanjang */
-.arrow-left::after{
-  content:"";
-  position:absolute;
-  right:0;
-  top:0;
-  height:2px;
-  width:120px;
-  background:linear-gradient(to right,#d8b84c,#f6e6a7,#d8b84c);
-  animation:stretch 2.8s ease-in-out infinite;
-}
-
-/* KEPALA PANAH KECIL "<" */
-.arrow-left::before{
-  content:"";
-  position:absolute;
-  left: -7px;
-  top:50%;
-  transform:translateY(-50%);
-  border-top:5px solid transparent;
-  border-bottom:5px solid transparent;
-  border-left:8px solid #e6cb6a;
-  animation:head 2.8s ease-in-out infinite;
-}
-
-/* animasi kepala mengikuti garisan */
-@keyframes head{
-  0%{ transform:translate(-35px,-50%); opacity:0; }
-  20%{ opacity:1; }
-  50%{ transform:translate(-3px,-50%); }
-  100%{ transform:translate(-3px,-50%); opacity:1; }
-}
-
-/* animasi garis memanjang */
 @keyframes stretch{
-  0%{ transform:translateX(120px); }
-  50%{ transform:translateX(0); }
-  100%{ transform:translateX(0); }
-  @keyframes pulse{
-  0%{ opacity:.2; transform:translateX(-6px); }
-  40%{ opacity:1; transform:translateX(0); }
-  100%{ opacity:1; }
-}
+  0%{width:40px; opacity:.6;}
+  100%{width:110px; opacity:1;}
 }
 
-/* Judul */
+/* TITLE */
 .order-title{
-  font-size:20px;
+  font-family:"Cinzel", serif;
   font-weight:700;
+  font-size:20px;
+  letter-spacing:1px;
 }
 </style>
 </head>
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>DEMYORÁ Order</title>
-
-  <!-- Font Luxury -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    body{
-      margin:0;
-      padding:40px;
-      background: linear-gradient(120deg, #0e0e0e, #1e1b14);
-      font-family: Arial, sans-serif;
-      color:white;
-    }
-
-    .order-header{
-      display:flex;
-      align-items:center;
-      gap:15px;
-      margin-bottom:25px;
-    }
-
-    .shop-btn{
-      background: linear-gradient(135deg,#d4b352,#e8cc74);
-      padding:10px 22px;
-      border-radius:40px;
-      text-decoration:none;
-      color:#2e250a;
-      font-family:"Cinzel", serif;
-      font-weight:700;
-      font-size:14px;
-      box-shadow:0 8px 22px rgba(0,0,0,.4);
-    }
-
-    .chevron{
-      font-size:36px;
-      font-weight:900;
-      color:#e6cb6a;
-      margin-top:-5px;
-    }
-
-    .arrow-left{
-      width:110px;
-      height:3px;
-      background:linear-gradient(90deg,#c8a84e,#e6d27e);
-      border-radius:20px;
-      position:relative;
-      animation:stretch 2s infinite ease-in-out;
-    }
-
-    @keyframes stretch{
-      0%{width:40px; opacity:.6;}
-      100%{width:110px; opacity:1;}
-    }
-
-    .order-title{
-      font-family:"Cinzel", serif;
-      font-weight:700;
-      font-size:20px;
-      letter-spacing:1px;
-    }
-  </style>
-</head>
-
 <body>
 
- <div class="order-header">
+<!-- BLOK 1 -->
+<div class="order-header">
   <a href="http://shopee.co.id/demyora.co" class="shop-btn">🛍 Shopee</a>
   <span class="chevron">&lt;</span>
   <div class="arrow-left"></div>
   <h2 class="order-title">Pemesanan</h2>
 </div>
 
+<!-- BLOK 2 -->
 <div class="order-header">
   <a href="https://www.instagram.com/deamarchy_?igsh=MW9nbWludzl1bTRweg==" class="shop-btn">📸 Instagram</a>
   <span class="chevron">&lt;</span>
@@ -485,9 +398,6 @@ body{
 </body>
 </html>
 
-
-</body>
-</html>
 
   </div>
 
