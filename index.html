@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxe Gold Parfum</title>
+<title>DEMYORÁ — Gilded Fragrance</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -11,61 +11,121 @@
 :root{
   --gold:#D4AF37;
   --gold-light:#f3dc8a;
-  --black:#050505;
 }
 
 /* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* LUX BACKGROUND — BLACK TO GOLD GRADIENT */
 body{
   font-family:'Poppins',sans-serif;
   color:white;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(255,215,100,.25), transparent 45%),
-    radial-gradient(circle at 85% 10%, rgba(255,215,100,.20), transparent 45%),
-    radial-gradient(circle at 90% 85%, rgba(255,215,100,.15), transparent 45%),
-    linear-gradient(135deg,#000000,#0a0a0a,#141414,#0d0d0d);
-  background-attachment:fixed;
   overflow-x:hidden;
+  background:#000;
+  min-height:100vh;
+  position:relative;
 }
 
-/* GOLD NOISE TEXTURE */
+/* ✨ LUXURY BACKGROUND LAYER 1 */
 body::before{
   content:"";
   position:fixed;
   inset:0;
-  background:url('https://i.imgur.com/yB1Ypbi.png');
-  mix-blend:screen;
-  opacity:.12;
-  pointer-events:none;
-  z-index:-1;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(255,215,100,.25), transparent 40%),
+    radial-gradient(circle at 90% 15%, rgba(255,215,100,.18), transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(255,215,100,.12), transparent 50%),
+    radial-gradient(circle at 15% 90%, rgba(255,215,100,.15), transparent 50%),
+    linear-gradient(140deg,#020202,#090909,#111,#0b0b0b,#000);
+  z-index:-3;
 }
 
-/* NAVBAR */
+/* ✨ SHIMMER */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.12),transparent 70%);
+  animation:shine 6s infinite linear;
+  mix-blend:overlay;
+  z-index:-2;
+}
+@keyframes shine{
+  from{transform:translateX(-100%)}
+  to{transform:translateX(100%)}
+}
+
+/* ✨ GOLD DUST */
+.gold-dust{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+}
+.gold-dust span{
+  position:absolute;
+  width:3px;height:3px;
+  background:radial-gradient(circle,#fff8d9,#f0d46a,#a88a2c);
+  border-radius:50%;
+  opacity:.9;
+  animation:float 14s linear infinite;
+  filter:blur(.2px);
+}
+@keyframes float{
+  0%{transform:translateY(0) scale(.6);opacity:.5}
+  40%{opacity:1}
+  100%{transform:translateY(-160vh) scale(1.2);opacity:0}
+}
+
+/* 🌟 NAVBAR MEWAH */
 nav{
+  position:sticky;
+  top:0;
+  z-index:999;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:18px 46px;
-  border-bottom:1px solid rgba(255,215,0,.25);
-  background:rgba(0,0,0,.65);
-  backdrop-filter:blur(14px);
+  padding:16px 44px;
+  height:78px;
+  background:linear-gradient(180deg,#0d0d0d,#050505);
+  border-bottom:1px solid rgba(212,175,55,.55);
+  box-shadow:0 10px 30px rgba(0,0,0,.35),0 2px 20px rgba(212,175,55,.15);
+  backdrop-filter:blur(12px);
 }
 
+/* kiri */
+.brand{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
 .logo{
-  font-family:'Playfair Display';
+  font-family:"Playfair Display";
   font-size:30px;
-  color:var(--gold-light);
+  letter-spacing:.5px;
+  background:linear-gradient(140deg,#d9be5a,#fff4bf,#e1c055);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.tagline{
+  font-size:12.5px;
+  color:#e9dfb9;
+  opacity:.9;
+  margin-top:4px;
 }
 
-nav a{
-  color:#fff;
-  margin-left:22px;
+/* kanan */
+.menu a{
+  color:#ffffff;
+  margin-left:26px;
   text-decoration:none;
+  font-size:14.5px;
   transition:.3s;
+  cursor:pointer;
 }
-nav a:hover{color:var(--gold-light)}
+.menu a:hover{
+  color:#ffe9a3;
+  text-shadow:0 0 10px rgba(255,215,0,.6);
+}
 
 /* HERO */
 .hero{
@@ -73,10 +133,9 @@ nav a:hover{color:var(--gold-light)}
   display:grid;
   grid-template-columns:1fr 1fr;
   align-items:center;
-  padding:60px 60px;
+  padding:60px;
   gap:40px;
 }
-
 .hero h1{
   font-family:'Playfair Display';
   font-size:60px;
@@ -84,13 +143,13 @@ nav a:hover{color:var(--gold-light)}
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
-
 .hero p{
   margin:20px 0;
   color:#e8e4d2;
   line-height:1.8;
 }
 
+/* BUTTON */
 .cta{
   padding:14px 30px;
   border-radius:40px;
@@ -105,7 +164,7 @@ nav a:hover{color:var(--gold-light)}
   box-shadow:0 0 30px rgba(255,215,0,.55);
 }
 
-/* PERFUME CARD */
+/* PRODUCT CARD */
 .card{
   width:340px;
   height:450px;
@@ -118,18 +177,11 @@ nav a:hover{color:var(--gold-light)}
   justify-content:center;
   align-items:center;
 }
-.card span{
-  font-family:'Playfair Display';
-  color:#f6e6a8;
-  font-size:22px;
-  text-align:center;
-}
 
-/* SECTIONS */
+/* SECTION */
 .section{
   padding:60px 50px;
 }
-
 .section h2{
   text-align:center;
   font-family:'Playfair Display';
@@ -140,14 +192,12 @@ nav a:hover{color:var(--gold-light)}
   margin-bottom:32px;
 }
 
-
 /* FEATURES */
 .features{
   display:grid;
-  grid-template-columns:repeat(4, 1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:26px;
 }
-
 .feature{
   text-align:center;
   background:linear-gradient(160deg,#0e0e0e,#000);
@@ -155,10 +205,22 @@ nav a:hover{color:var(--gold-light)}
   padding:24px;
   border:1px solid rgba(255,215,0,.45);
   box-shadow:0 0 25px rgba(255,215,0,.22);
-  color:#fff;
 }
-
-.feature h3{color:#f1d887}
+.feature h3{
+  color:#ffd700;
+  margin-bottom:10px;
+  font-size:18px;
+}
+.feature-img{
+  width:220px;
+  height:280px;
+  object-fit:cover;
+  border-radius:22px;
+  margin:12px auto 18px;
+  display:block;
+  border:1px solid rgba(255,215,0,.55);
+  box-shadow:0 10px 28px rgba(255,215,0,.25);
+}
 
 /* FORM */
 .form-wrapper{
@@ -170,13 +232,11 @@ nav a:hover{color:var(--gold-light)}
   border:1px solid rgba(255,215,0,.45);
   box-shadow:0 0 25px rgba(255,215,0,.25);
 }
-
 label{
   color:#f2de97;
   margin-bottom:5px;
   display:block;
 }
-
 input,select{
   width:100%;
   padding:12px;
@@ -187,10 +247,7 @@ input,select{
   background:#0b0b0b;
   color:#fff;
 }
-
-.submit{
-  width:100%;
-}
+.submit{width:100%}
 
 /* FOOTER */
 footer{
@@ -200,179 +257,287 @@ footer{
   color:#d8cca2;
 }
 
-
-
 /* RESPONSIVE */
 @media(max-width:900px){
-  .hero{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-  .features{
-    grid-template-columns:1fr;
-  }
+  .hero{grid-template-columns:1fr;text-align:center}
+  .features{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-    <div style="color: white; font-family: 'Times New Roman', Times, serif;">
-        <div class="logo"> DEMYORÁ </div>
-        <div> Gilded Fragrance </div>
-    </div>
+<!-- ✨ floating gold dust -->
+<div class="gold-dust">
+  <!-- bikin banyak titik emas -->
+  <span style="left:5%;top:105%;animation-delay:0s"></span>
+  <span style="left:15%;top:120%;animation-delay:.8s"></span>
+  <span style="left:25%;top:110%;animation-delay:1.6s"></span>
+  <span style="left:35%;top:125%;animation-delay:2.4s"></span>
+  <span style="left:45%;top:118%;animation-delay:3s"></span>
+  <span style="left:55%;top:122%;animation-delay:1.2s"></span>
+  <span style="left:65%;top:114%;animation-delay:2s"></span>
+  <span style="left:75%;top:128%;animation-delay:2.8s"></span>
+  <span style="left:85%;top:118%;animation-delay:1.4s"></span>
+  <span style="left:92%;top:130%;animation-delay:2.6s"></span>
+</div>
 
-  <div>
-    <a href="#">Beranda</a>
-    <a href="#about">Tentang</a>
-    <a href="#order">Pesan</a>
+<!-- 🌟 NAVBAR -->
+<nav>
+  <div class="brand">
+    <div class="logo">DEMYORÁ</div>
+    <div class="tagline">Gilded Fragrance</div>
+  </div>
+
+  <div class="menu">
+    <a onclick="scrollToId('top')">Beranda</a>
+    <a onclick="scrollToId('about')">Tentang</a>
+    <a onclick="scrollToId('order')">Pesan</a>
   </div>
 </nav>
 
-
-<section class="hero">
+<section id="top" class="hero">
   <div>
-    <h1>Sentuhan Glamour<br>dalam Setiap Aromamu</h1>
-    <p>DEMYORÁ
-Gilded Fragrance menghadirkan nuansa mewah, elegan, dan berkelas.  
-    Wangi eksklusif yang memikat — cocok untuk kepribadian premium.</p>
-<div style="display:flex;">
-  <!-- container tadi di sini -->
+    <h1>A Touch of Glamour<br>in every scent</h1>
+    <p>DEMYORÁ Gilded Fragrance menghadirkan nuansa mewah, elegan, dan berkelas. Aroma eksklusif yang memikat — cocok untuk kepribadian premium</p>
 
+    <!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demonyra</title>
 
-    <button class="cta" onclick="document.querySelector('#order').scrollIntoView({behavior:'smooth'})">
-      <a href="">👜Shopee</a>
-    </button>
-  <div style="display:flex; align-items:center; gap:10px; color:white; font-size:22px; font-weight:600; margin-left: 20px;">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
-  xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 12H4" stroke="white" stroke-width="2" stroke-linecap="round"/>
-    <path d="M10 18L4 12L10 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-  Pemesanan
+<style>
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(140deg,#0a0a0a,#14110a,#0c0c0c);
+  color:white;
+}
+
+/* === HEADER PEMESANAN === */
+.order-header{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  padding:40px 44px 10px;
+}
+
+/* Tombol Shopee */
+.shop-btn{
+  background:linear-gradient(135deg,#d8b84c,#f6e6a7,#cfa93b);
+  color:#000;
+  padding:10px 26px;
+  border-radius:30px;
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 8px 18px rgba(0,0,0,.25);
+  transition:.3s;
+}
+.shop-btn:hover{ transform:translateY(-2px); }
+
+/* GARIS PANAH ANIMASI */
+.arrow-left{
+  position:relative;
+  height:2px;
+  width:120px;  /* panjang maksimum */
+  overflow:hidden;
+}
+
+/* garis yang memanjang */
+.arrow-left::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:0;
+  height:2px;
+  width:120px;
+  background:linear-gradient(to right,#d8b84c,#f6e6a7,#d8b84c);
+  animation:stretch 2.8s ease-in-out infinite;
+}
+
+/* KEPALA PANAH KECIL "<" */
+.arrow-left::before{
+  content:"";
+  position:absolute;
+  left: -7px;
+  top:50%;
+  transform:translateY(-50%);
+  border-top:5px solid transparent;
+  border-bottom:5px solid transparent;
+  border-left:8px solid #e6cb6a;
+  animation:head 2.8s ease-in-out infinite;
+}
+
+/* animasi kepala mengikuti garisan */
+@keyframes head{
+  0%{ transform:translate(-35px,-50%); opacity:0; }
+  20%{ opacity:1; }
+  50%{ transform:translate(-3px,-50%); }
+  100%{ transform:translate(-3px,-50%); opacity:1; }
+}
+
+/* animasi garis memanjang */
+@keyframes stretch{
+  0%{ transform:translateX(120px); }
+  50%{ transform:translateX(0); }
+  100%{ transform:translateX(0); }
+  @keyframes pulse{
+  0%{ opacity:.2; transform:translateX(-6px); }
+  40%{ opacity:1; transform:translateX(0); }
+  100%{ opacity:1; }
+}
+}
+
+/* Judul */
+.order-title{
+  font-size:20px;
+  font-weight:700;
+}
+</style>
+</head>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>DEMYORÁ Order</title>
+
+  <!-- Font Luxury -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body{
+      margin:0;
+      padding:40px;
+      background: linear-gradient(120deg, #0e0e0e, #1e1b14);
+      font-family: Arial, sans-serif;
+      color:white;
+    }
+
+    .order-header{
+      display:flex;
+      align-items:center;
+      gap:15px;
+      margin-bottom:25px;
+    }
+
+    .shop-btn{
+      background: linear-gradient(135deg,#d4b352,#e8cc74);
+      padding:10px 22px;
+      border-radius:40px;
+      text-decoration:none;
+      color:#2e250a;
+      font-family:"Cinzel", serif;
+      font-weight:700;
+      font-size:14px;
+      box-shadow:0 8px 22px rgba(0,0,0,.4);
+    }
+
+    .chevron{
+      font-size:36px;
+      font-weight:900;
+      color:#e6cb6a;
+      margin-top:-5px;
+    }
+
+    .arrow-left{
+      width:110px;
+      height:3px;
+      background:linear-gradient(90deg,#c8a84e,#e6d27e);
+      border-radius:20px;
+      position:relative;
+      animation:stretch 2s infinite ease-in-out;
+    }
+
+    @keyframes stretch{
+      0%{width:40px; opacity:.6;}
+      100%{width:110px; opacity:1;}
+    }
+
+    .order-title{
+      font-family:"Cinzel", serif;
+      font-weight:700;
+      font-size:20px;
+      letter-spacing:1px;
+    }
+  </style>
+</head>
+
+<body>
+
+ <div class="order-header">
+  <a href="http://shopee.co.id/demyora.co" class="shop-btn">🛍 Shopee</a>
+  <span class="chevron">&lt;</span>
+  <div class="arrow-left"></div>
+  <h2 class="order-title">Pemesanan</h2>
 </div>
 
+<div class="order-header">
+  <a href="https://www.instagram.com/deamarchy_?igsh=MW9nbWludzl1bTRweg==" class="shop-btn">📸 Instagram</a>
+  <span class="chevron">&lt;</span>
+  <div class="arrow-left"></div>
+  <h2 class="order-title">Detail Produk</h2>
 </div>
+
+</body>
+</html>
+
+
+</body>
+</html>
 
   </div>
 
   <div class="card">
-  <img 
-    src="DEMYORA.jpg"
-    style="
-      width:337px;
-      height:449px;
-      object-fit:cover;
-      object-position:30% center; 
-      border-radius:30px;
-      box-shadow:0 10px 25px rgba(255,215,0,0.35);
-    "
-  >
-</div>
-
-  
-</div>
-
-
-
+    <img src="DEMYORA.jpg" style="width:337px;height:449px;object-fit:cover;border-radius:30px;">
   </div>
 </section>
-
-
 
 <section class="section" id="about">
   <h2>Our Exclusive Scent Selection</h2>
 
   <div class="features">
-
     <div class="feature">
       <h3>Amber Oud Elif</h3>
       <img src="amber.jpg" class="feature-img">
-      <p>
-        Perpaduan amber & oud yang hangat, mewah, dan elegan.  
-        <br><br>
-        <strong>“Aroma lembut namun berwibawa — meninggalkan kesan mahal sejak pertama kali tercium.”</strong>
-      </p>
-    </div>
+      <p>Perpaduan amber & oud yang hangat, mewah, dan elegan.
 
-    <div class="feature">
-      <h3>Étoile Noiré</h3>
-      <img src="etoile.jpg" class="feature-img">
-      <p>
-        Floral-musk yang manis, feminin, dan memikat.  
-        <br><br>
-        <strong>“Wangi bintang malam — tenang, anggun, dan sangat memorable.”</strong>
-      </p>
+“Aroma lembut namun berwibawa — meninggalkan kesan mahal sejak pertama kali tercium.”</p>
     </div>
 
     <div class="feature">
       <h3>Éclat D’Homme</h3>
       <img src="eclat.jpg" class="feature-img">
-      <p>
-        Fresh woody citrus maskulin yang berenergi.  
-        <br><br>
-        <strong>“Untuk pria berkarisma — simple, bersih, tapi sangat berkesan.”</strong>
-      </p>
+      <p>Fresh woody citrus maskulin yang berenergi.
+
+“Untuk pria berkarisma — simple, bersih, tapi sangat berkesan.”</p>
+    </div>
+
+    <div class="feature">
+      <h3>Étoile Noiré</h3>
+      <img src="etoile.jpg" class="feature-img">
+      <p>Floral-musk yang manis, feminin, dan memikat.
+
+“Wangi bintang malam — tenang, anggun, dan sangat memorable.”</p>
     </div>
 
     <div class="feature">
       <h3>Obscur D’Or</h3>
       <img src="obscur.jpg" class="feature-img">
-      <p>
-        Oud gelap berbalut vanilla & spice, intens dan mahal.  
-        <br><br>
-        <strong>“Aroma misterius dan powerful — cocok untuk malam & event spesial.”</strong>
-      </p>
-    </div>
+      <p>Oud gelap berbalut vanilla & spice, intens dan mahal.
 
+“Aroma misterius dan powerful — cocok untuk malam & event spesial.”
+
+</p>
+    </div>
   </div>
 </section>
 
-<style>
-.features{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:26px;
-}
-
-.feature{
-  text-align:center;
-  background:linear-gradient(160deg,#0e0e0e,#000);
-  border-radius:22px;
-  padding:24px;
-  border:1px solid rgba(255,215,0,.45);
-  box-shadow:0 0 25px rgba(255,215,0,.22);
-}
-
-.feature h3{
-  color:#ffd700;
-  margin-bottom:10px;
-  font-size:18px;
-  letter-spacing:.4px;
-}
-
-.feature p{
-  font-size:14px;
-  color:#e8e8e8;
-}
-
-.feature-img{
-  width:220px;
-  height:280px;
-  object-fit:cover;
-  border-radius:22px;
-  margin:12px auto 18px;
-  display:block;
-  border:1px solid rgba(255,215,0,.55);
-  box-shadow:0 10px 28px rgba(255,215,0,.25);
-}
-</style>
-
-
-
 <section class="section" id="order">
-  <h2>Form Pemesanan</h2>
+  <h2>Product detail information</h2>
 
   <div class="form-wrapper">
     <form id="orderForm">
@@ -393,33 +558,52 @@ Gilded Fragrance menghadirkan nuansa mewah, elegan, dan berkelas.
       <label>Jumlah</label>
       <input id="qty" type="number" min="1" value="1">
 
+         <label>Alamat</label>
+      <input id="alamat" required placeholder="masukkan alamat lengkap">
+
       <button class="cta submit" type="submit">Selengkapnya!</button>
     </form>
   </div>
 </section>
 
 <footer>
-  © 2025 DEMYORÁ
-Gilded Fragrance — Luxury • Classy • Glamour
+  © 2025 DEMYORÁ Gilded Fragrance — Luxury • Classy • Glamour
 </footer>
 
 <script>
-// 🔗 GANTI DENGAN LINK TOKO SHOPEE KAMU
-const SHOPEE_URL = "https://shopee.co.id/";
+const SHOPEE_URL="https://shopee.co.id/";
 
-document.getElementById("orderForm").addEventListener("submit", e=>{
+function scrollToId(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+function openShopee(){
+  window.open(SHOPEE_URL,'_blank');
+}
+orderForm.addEventListener("submit", e => {
   e.preventDefault();
 
-  const note = `
-Nama: ${nama.value}
-WA: ${wa.value}
-Varian: ${variant.value}
-Qty: ${qty.value}
-`;
+  const nama = document.getElementById("nama").value;
+  const wa = document.getElementById("wa").value;
+  const variant = document.getElementById("variant").value;
+  const qty = document.getElementById("qty").value;
+const alamat = document.getElementById("alamat").value;
+  const nomorwa = "6285712651979";
 
-  window.open(`${SHOPEE_URL}?note=${encodeURIComponent(note)}`,'_blank');
+  const Pesan = `Hallo kak DEA bisa 
+  Nama: ${nama}
+WA: ${wa}
+Varian: ${variant}
+Jumlah: ${qty}
+Alamat: ${alamat}`;
+
+  window.open(
+    `https://wa.me/${nomorwa}?text=${encodeURIComponent(Pesan)}`,
+    "_blank"
+  );
 });
+
 </script>
 
 </body>
 </html>
+
